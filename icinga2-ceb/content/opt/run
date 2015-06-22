@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+
+initfile=/etc/icinga2.init
+
+chmod 1777 /tmp
+
+# chown directories and files that might be coming from volumes
+chown -R nagios:root /etc/icinga2
+chown -R nagios:nagios /var/lib/icinga2
+
+if [ ! -f "${initfile}" ]; then
+touch ${initfile}
+fi
+
+echo "Starting Supervisor.  You can safely CTRL-C and the container will continue to run with or without the -d (daemon) option"
+/usr/bin/supervisord >> /dev/null
