@@ -4,7 +4,7 @@
 docker build -t extendedmind/icinga2-ceb:latest .
 
 ### Use a data volume container to save configuration...
-docker create --name icinga2-ceb-data extendedmind/icinga2-ceb:latest /bin/true
+docker create --name icinga2-ceb-data extendedmind/icinga2-ceb:latest
 
 ### ...and run the Icinga2 CEB container with the data volume container:
 docker run -d -p 5665:5665 -t --name icinga2-ceb --volumes-from icinga2-ceb-data extendedmind/icinga2-ceb:latest
