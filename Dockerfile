@@ -10,7 +10,7 @@ RUN apt-get -qq update \
 RUN wget --quiet -O - http://packages.icinga.org/icinga.key | apt-key add -
 RUN echo "deb http://packages.icinga.org/debian icinga-wheezy-snapshots main" >> /etc/apt/sources.list
 RUN apt-get -qq update \
-    && apt-get -qqy install --no-install-recommends icinga2 \
+    && apt-get -qqy install icinga2 \
     && apt-get clean
 
 ADD content/ /
