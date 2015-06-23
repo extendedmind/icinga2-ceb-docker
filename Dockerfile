@@ -19,6 +19,7 @@ RUN chmod u+x /opt/supervisor/icinga2_supervisor
 RUN chmod u+x /opt/run
 
 EXPOSE 5665
+VOLUME ["/etc/icinga2"]
 
 # Initialize and run Supervisor
 ENTRYPOINT ["/opt/run"]
